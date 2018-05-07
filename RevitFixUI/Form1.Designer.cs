@@ -32,13 +32,14 @@
             this.buttonFix = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxHard = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonFix
             // 
             this.buttonFix.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonFix.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.buttonFix.Location = new System.Drawing.Point(235, 68);
+            this.buttonFix.Location = new System.Drawing.Point(335, 68);
             this.buttonFix.Name = "buttonFix";
             this.buttonFix.Size = new System.Drawing.Size(135, 25);
             this.buttonFix.TabIndex = 0;
@@ -67,13 +68,25 @@
             this.label1.Text = "Select Revit version to recover UI state";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // checkBoxHard
+            // 
+            this.checkBoxHard.AutoSize = true;
+            this.checkBoxHard.Location = new System.Drawing.Point(125, 72);
+            this.checkBoxHard.Name = "checkBoxHard";
+            this.checkBoxHard.Size = new System.Drawing.Size(180, 21);
+            this.checkBoxHard.TabIndex = 3;
+            this.checkBoxHard.Text = "Hard (clean all settings)";
+            this.checkBoxHard.UseVisualStyleBackColor = true;
+            this.checkBoxHard.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // VersionSelectionForm
             // 
             this.AcceptButton = this.buttonFix;
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(382, 105);
+            this.ClientSize = new System.Drawing.Size(482, 105);
+            this.Controls.Add(this.checkBoxHard);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.buttonFix);
@@ -97,6 +110,7 @@
         private System.Windows.Forms.Button buttonFix;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxHard;
     }
 }
 

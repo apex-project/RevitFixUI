@@ -42,8 +42,13 @@ namespace RevitFixUI
                 errors += "- UIState files not found\n";
                 error_count ++;
             }
-            
-            bool reg_renamed = selectedVersion.RenameRegWorkspace();
+
+            string registry_path = Program.registry_path;
+
+            if (checkBoxHard.Checked)
+                registry_path = Program.registry_path_hard;
+
+            bool reg_renamed = selectedVersion.RenameRegWorkspace(registry_path);
             if (reg_renamed == false)
             {
                 errors += "- Registry key not found\n";
@@ -80,6 +85,11 @@ namespace RevitFixUI
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }

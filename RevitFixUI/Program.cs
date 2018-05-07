@@ -20,6 +20,7 @@ namespace RevitFixUI
         public const string directory_regex = @"^Autodesk Revit (20[0-9]{2})$";
         public const string timestamp_format = "yyMMdd_HHmmss";
         public const string registry_path = @"SOFTWARE\Autodesk\Revit\Autodesk Revit {0}\Workspace";
+        public const string registry_path_hard = @"SOFTWARE\Autodesk\Revit\Autodesk Revit {0}";
         public static string path_appdata = Environment.ExpandEnvironmentVariables(appdata);
         public const string title = "RevitFixUI";
         [STAThread]
@@ -144,12 +145,13 @@ namespace RevitFixUI
         }
 
 
-        public bool RenameRegWorkspace()
+        public bool RenameRegWorkspace(string registry_path)
         {
-            string key_src_string = String.Format(Program.registry_path, this.Version);
+            
+            string key_src_string = String.Format(registry_path, this.Version);
             var key_src = Registry.CurrentUser.OpenSubKey(key_src_string);
 
-            string key_dst_string = String.Format(Program.registry_path, this.Version)
+            string key_dst_string = String.Format(registry_path, this.Version)
                 + "_backup_" + DateTime.Now.ToString(Program.timestamp_format);
             var key_dst = Registry.CurrentUser.OpenSubKey(key_dst_string);
 
